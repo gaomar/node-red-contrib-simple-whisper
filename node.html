@@ -1,0 +1,52 @@
+<script type="text/javascript">
+    RED.nodes.registerType('simple-whisper',{
+        category: 'function',
+        color: '#D4C0D6',
+        defaults: {
+            name: {value: ""},
+            Token:{value: "", required:true},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file-in.png",
+        label: function() {
+            return this.name||"simple-whisper";
+        },
+    });
+ </script>
+ 
+ <script type="text/html" data-template-name="simple-whisper">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-Token">
+            <i class="icon-tag"></i>
+            OpenAI API Key
+        </label>
+        <input type="password" id="node-input-Token" placeholder="Token">
+    </div>
+ </script>
+ 
+ <script type="text/html" data-help-name="simple-whisper">
+    <p>Whisperを試すことができます。</p>
+    <h3>入力</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">buffer</span>
+        </dt>
+        <dd> Whisperに渡すバイナリ形式のファイルデータです。 </dd>
+        <dt class="optional">OpenAI API Key <span class="property-type">string</span></dt>
+        <dd> OpenAIのAPIキーです。</dd>
+        <dt class="optional">file<span class="property-type">buffer</span></dt>
+        <dd> msg.fileプロパティに渡すことも可能です。</dd>
+    </dl>
+    <h3>出力</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">string</span>
+        </dt>
+        <dd> Whisperの返答メッセージが返ってきます </dd>
+    </dl>
+ </script>
