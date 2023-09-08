@@ -24,6 +24,7 @@ AdminタブからInstall
 |項目|説明|
 |--|--|
 |OpenAI API Key|OpenAPIのAPIキーを設定します。|
+|extension|ファイルの拡張子を指定します。（省略可能）|
 |payload|バイナリ形式のファイルを指定します。|
 |msg.file|バイナリ形式のファイルを直接指定します。（省略可能）|
 
