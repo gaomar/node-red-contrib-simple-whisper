@@ -5,6 +5,7 @@
         defaults: {
             name: {value: ""},
             Token:{value: "", required:true},
+            extension:{value: "wav"},
         },
         inputs:1,
         outputs:1,
@@ -25,7 +26,14 @@
             <i class="icon-tag"></i>
             OpenAI API Key
         </label>
-        <input type="password" id="node-input-Token" placeholder="Token">
+        <input type="password" id="node-input-Token" placeholder="OpenAI API Key">
+    </div>
+    <div class="form-row">
+        <label for="node-input-FileName">
+            <i class="icon-tag"></i>
+            extension
+        </label>
+        <input type="text" id="node-input-extension" placeholder="wav">
     </div>
  </script>
  
@@ -39,6 +47,10 @@
         <dd> Whisperに渡すバイナリ形式のファイルデータです。 </dd>
         <dt class="optional">OpenAI API Key <span class="property-type">string</span></dt>
         <dd> OpenAIのAPIキーです。</dd>
+        <dt>extension
+            <span class="property-type">string</span>
+        </dt>
+        <dd> ファイルの拡張子を指定します。省略すると「wav」となります。拡張子がwavではない場合はこちらから正しい拡張子を指定してください。 </dd>
         <dt class="optional">file<span class="property-type">buffer</span></dt>
         <dd> msg.fileプロパティに渡すことも可能です。</dd>
     </dl>

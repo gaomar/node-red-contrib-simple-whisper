@@ -3,6 +3,7 @@ module.exports = (RED) => {
   const main = function (config) {
     RED.nodes.createNode(this, config);
     this.Token = config.Token || "";
+    this.extension = config.extension || "wav";
     const node = this;
 
     const openai = new OpenAI({
@@ -15,7 +16,7 @@ module.exports = (RED) => {
       const buffer = (msg.file.length == 0 ) ? msg.payload : msg.file;
       try {
         const resp = await openai.audio.transcriptions.create({
-          file: await OpenAI.toFile(buffer, 'hoge.wav'),
+          file: await OpenAI.toFile(buffer, `hoge.${node.extension}`),
           model: 'whisper-1',
         })
         msg.payload = resp.text;
